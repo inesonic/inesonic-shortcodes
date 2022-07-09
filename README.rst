@@ -3,7 +3,7 @@ inesonic-shortcodes
 ===================
 This is a small WordPress plugin that provides a small number of generic and
 useful shortcodes for WordPress.  This plugin is currently used on the
-``Inesonic, LLC website <https://inesonic.com>``.
+`Inesonic, LLC website <https://inesonic.com>`.
 
 To use, simply copy this entire directory into your WordPress plugins directory
 and then activate the plugin from the WordPress admin panel.
