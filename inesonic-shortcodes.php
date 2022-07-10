@@ -10,7 +10,18 @@
 
 /***********************************************************************************************************************
  * Copyright 2022, Inesonic, LLC.
- * All Rights Reserved
+ *
+ * GNU Public License, Version 3:
+ *   This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+ *   License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
+ *   later version.
+ *
+ *   This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ *   warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+ *   details.
+ *
+ *   You should have received a copy of the GNU General Public License along with this program.  If not, see
+ *   <https://www.gnu.org/licenses/>.
  ***********************************************************************************************************************
  */
 
@@ -69,7 +80,7 @@ class InesonicShortcodes {
     public function user_registered($user_id, $user_data) {
         add_user_meta($user_id, 'inesonic_user_registered', time());
     }
-        
+
     /**
      * Method you can use to obtain the date/time that the user joined.
      *
@@ -91,7 +102,7 @@ class InesonicShortcodes {
      * \return Returns the user's first name.
      */
     public function inesonic_first_name($attributes) {
-        $current_user = wp_get_current_user();        
+        $current_user = wp_get_current_user();
         if ($current_user !== null && $current_user !== false && $current_user->ID != 0) {
             $result = esc_html($current_user->user_firstname);
         } else {
@@ -109,7 +120,7 @@ class InesonicShortcodes {
      * \return Returns the user's first name.
      */
     public function inesonic_last_name($attributes) {
-        $current_user = wp_get_current_user();        
+        $current_user = wp_get_current_user();
         if ($current_user !== null && $current_user !== false && $current_user->ID != 0) {
             $result = esc_html($current_user->user_lastname);
         } else {
@@ -127,7 +138,7 @@ class InesonicShortcodes {
      * \return Returns the user's first name.
      */
     public function inesonic_full_name($attributes) {
-        $current_user = wp_get_current_user();        
+        $current_user = wp_get_current_user();
         if ($current_user !== null && $current_user !== false && $current_user->ID != 0) {
             $result = esc_html($current_user->user_firstname . ' ' . $current_user->user_lastname);
         } else {
@@ -145,7 +156,7 @@ class InesonicShortcodes {
      * \return Returns the user's first name.
      */
     public function inesonic_username($attributes) {
-        $current_user = wp_get_current_user();        
+        $current_user = wp_get_current_user();
         if ($current_user !== null && $current_user !== false && $current_user->ID != 0) {
             $result = esc_html($current_user->user_login);
         } else {
@@ -163,7 +174,7 @@ class InesonicShortcodes {
      * \return Returns the user's first name.
      */
     public function inesonic_email_address($attributes) {
-        $current_user = wp_get_current_user();        
+        $current_user = wp_get_current_user();
         if ($current_user !== null && $current_user !== false && $current_user->ID != 0) {
             $result = esc_html($current_user->user_email);
         } else {
@@ -181,8 +192,8 @@ class InesonicShortcodes {
      *
      * \return Returns the user's first name.
      */
-    public function inesonic_registered_datetime($attributes) {        
-        $current_user = wp_get_current_user();        
+    public function inesonic_registered_datetime($attributes) {
+        $current_user = wp_get_current_user();
         if ($current_user !== null && $current_user !== false && $current_user->ID != 0) {
             $registered_datetime = $this->get_user_registered($current_user->ID);
             if ($registered_datetime) {
@@ -191,7 +202,7 @@ class InesonicShortcodes {
                 } else {
                     $format = "Y-m-d H:i:s";
                 }
-            
+
                 $result = esc_html(date($format, $registered_datetime));
             } else {
                 $result = __('unknown', 'inesonic-shortcodes');
